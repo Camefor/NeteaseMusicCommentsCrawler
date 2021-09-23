@@ -1,1 +1,1 @@
-﻿function getNumber(str) { return '输出: ' + str }
+﻿function getNumber(str) { return { name: "测试代码", value: "输出： " + str } }

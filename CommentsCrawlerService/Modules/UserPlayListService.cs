@@ -1,4 +1,5 @@
-﻿using Camefor.Tools.NetCore.Util;
+﻿using Camefor.Tools.NetCore;
+using Camefor.Tools.NetCore.Util;
 using Camefor.Tools.NetCore.Util.Web;
 using CommentsCrawlerService.Config;
 using CommentsCrawlerService.Models;
@@ -33,15 +34,29 @@ namespace CommentsCrawlerService.Modules
                 }
 
                 //执行js加密方法所需参数
-                var d = req.ToJson();
+                var p_arams = string.Empty;
+                var encSecKey = string.Empty;
+                try
+                {
+                    using (ScriptEngine engine = new ScriptEngine("jscript"))
+                    {
+                        var parsed = engine.Parse(DecryptCoreJsCodeString.Content);
+                        var d = req.ToJson();
+                        dynamic jsResult = parsed.CallMethod("start", d);
+                        p_arams = jsResult.p_arams as string;
+                        encSecKey = jsResult.encSecKey as string;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("执行js代码失败", ex);
+                }
 
-                var test = new Dictionary<string, string>();
-                test.Add("params", "fcP2s8qNzXjCEHXKk8MaBQP9TmZac4qyvKg1BbQ0qWATkIDPQMUXTviDT7TzkGMcoOhO4lfQAxCB88UHl5fCML3tLQY/xSXkUPeVpkFnkm2rNXrPfEFkYVqflUqgEZXlIWTmnFb7OfO1JdhFaUCFMeNfKz3DRV3DEyyuS9sL+zSazDzc1AA3fKLIKOJHSRrW");
-                test.Add("encSecKey", "ab8af6344334422b3640a45234ebd29e94f390109059dc4aafe71783d842e1941ba4fd9f17af37a5dd92dbc5b5d465b0afcfe379017446ed70ffa144b1e9528353fb240c0eba309ace16486a9ec7fb7afce900725c9360e96d080cbf4459a5e027ec8e8834674c5dd9ddcde111ed8a2faf2c9f1d8069c7a81507caf069665b95");
 
-                var postData = test.ToJson();
-
-                var res = HttpMethods.Post(NeteaseMusicApiUrlManage.PlayList, test);
+                var postData = new Dictionary<string, string>();
+                postData.Add("params", p_arams);
+                postData.Add("encSecKey", encSecKey);
+                var res = HttpMethods.Post(NeteaseMusicApiUrlManage.PlayList, postData);
                 var data = res.ToObject<PlayListOutModel>();
                 return data;
             }

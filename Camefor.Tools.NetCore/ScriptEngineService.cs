@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Threading;
-namespace CommentsCrawlerService.Modules
+namespace Camefor.Tools.NetCore
 {
     /// <summary>
     /// Represents a Windows Script Engine such as JScript, VBScript, etc.
