@@ -1,0 +1,1 @@
+﻿function getNumber(str) { return '输出: ' + str }

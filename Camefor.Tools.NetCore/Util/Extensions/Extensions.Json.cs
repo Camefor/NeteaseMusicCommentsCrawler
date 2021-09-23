@@ -50,9 +50,10 @@ namespace Camefor.Tools.NetCore.Util
             var timeConverter = new IsoDateTimeConverter { DateTimeFormat = datetimeformats };
             return JsonConvert.SerializeObject(obj, timeConverter);
         }
-        
+
         /// <summary>
         /// 动态对象
+        /// https://stackoverflow.com/questions/13517792/deserializing-json-with-dynamic-keys
         /// </summary>
         /// <param name="josn"></param>
         /// <returns></returns>
