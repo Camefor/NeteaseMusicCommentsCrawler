@@ -1,4 +1,5 @@
 ﻿using Camefor.Tools.NetCore;
+using Camefor.Tools.NetCore.Util;
 using Camefor.Tools.NetCore.Util.Web;
 using CommentsCrawlerService.Config;
 using CommentsCrawlerService.Modules;
@@ -13,16 +14,23 @@ namespace CommentsCrawler
         static void Main(string[] args)
         {
 
-            UserPlayListService playLIstService = new UserPlayListService();
-            var result = playLIstService.GetPlayList(new CommentsCrawlerService.Models.PlayListRequestModel
+            using (PerformanceTester performanceTester = new PerformanceTester())
             {
-                uid = "346539201"
-            });
-            foreach (var item in result.playlist)
-            {
-                Console.WriteLine(item.name);
-                Console.WriteLine();
+                UserPlayListService playLIstService = new UserPlayListService();
+                var result = playLIstService.GetPlayList(new CommentsCrawlerService.Models.PlayListRequestModel
+                {
+                    uid = "346539201"
+                });
+                foreach (var item in result.playlist)
+                {
+                    Console.WriteLine(item.name);
+                    Console.WriteLine();
+                }
+
+                Console.WriteLine("耗时： " + performanceTester.Result.TotalMilliseconds + "毫秒");
             }
+
+
 
 
             //using (ScriptEngine engine = new ScriptEngine("jscript"))

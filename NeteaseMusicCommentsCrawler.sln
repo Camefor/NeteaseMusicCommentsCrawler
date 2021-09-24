@@ -1,13 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.0.31612.314
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31410.357
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Camefor.Tools.NetCore", "Camefor.Tools.NetCore\Camefor.Tools.NetCore.csproj", "{6493E360-B41A-4EB5-8E5C-C05A149D5804}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{2AB5CD8A-B7A6-46FC-9187-C4697529953E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommentsCrawler", "CommentsCrawler\CommentsCrawler.csproj", "{0039C67C-179E-4051-8FE7-F822668B9EA5}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{A59D4179-BEA7-4761-8EF9-4D3C0D3CDC5F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommentsCrawlerService", "CommentsCrawlerService\CommentsCrawlerService.csproj", "{BA8F3461-B34C-45BD-9B57-94FA821DB022}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Camefor.Tools.NetCore", "src\Camefor.Tools.NetCore\Camefor.Tools.NetCore.csproj", "{92E0B0BD-EE00-4523-84A0-6CC4C614FC48}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommentsCrawler", "src\CommentsCrawler\CommentsCrawler.csproj", "{C230469D-1321-4823-B884-6000D5EBEFAA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommentsCrawlerService", "src\CommentsCrawlerService\CommentsCrawlerService.csproj", "{0DFF0258-FEEC-45C9-961B-FD4175B4D62E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,21 +19,26 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6493E360-B41A-4EB5-8E5C-C05A149D5804}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6493E360-B41A-4EB5-8E5C-C05A149D5804}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6493E360-B41A-4EB5-8E5C-C05A149D5804}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6493E360-B41A-4EB5-8E5C-C05A149D5804}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0039C67C-179E-4051-8FE7-F822668B9EA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0039C67C-179E-4051-8FE7-F822668B9EA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0039C67C-179E-4051-8FE7-F822668B9EA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0039C67C-179E-4051-8FE7-F822668B9EA5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BA8F3461-B34C-45BD-9B57-94FA821DB022}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BA8F3461-B34C-45BD-9B57-94FA821DB022}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BA8F3461-B34C-45BD-9B57-94FA821DB022}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BA8F3461-B34C-45BD-9B57-94FA821DB022}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92E0B0BD-EE00-4523-84A0-6CC4C614FC48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92E0B0BD-EE00-4523-84A0-6CC4C614FC48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92E0B0BD-EE00-4523-84A0-6CC4C614FC48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92E0B0BD-EE00-4523-84A0-6CC4C614FC48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C230469D-1321-4823-B884-6000D5EBEFAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C230469D-1321-4823-B884-6000D5EBEFAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C230469D-1321-4823-B884-6000D5EBEFAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C230469D-1321-4823-B884-6000D5EBEFAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DFF0258-FEEC-45C9-961B-FD4175B4D62E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DFF0258-FEEC-45C9-961B-FD4175B4D62E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DFF0258-FEEC-45C9-961B-FD4175B4D62E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DFF0258-FEEC-45C9-961B-FD4175B4D62E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{92E0B0BD-EE00-4523-84A0-6CC4C614FC48} = {2AB5CD8A-B7A6-46FC-9187-C4697529953E}
+		{C230469D-1321-4823-B884-6000D5EBEFAA} = {2AB5CD8A-B7A6-46FC-9187-C4697529953E}
+		{0DFF0258-FEEC-45C9-961B-FD4175B4D62E} = {2AB5CD8A-B7A6-46FC-9187-C4697529953E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {25683780-7F1A-4816-867D-0103FBBEA2C7}
