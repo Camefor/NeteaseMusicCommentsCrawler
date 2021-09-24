@@ -34,25 +34,10 @@ namespace CommentsCrawlerService.Modules
                 }
 
                 //执行js加密方法所需参数
-                var p_arams = string.Empty;
-                var encSecKey = string.Empty;
-                try
-                {
-                    using (ScriptEngine engine = new ScriptEngine("jscript"))
-                    {
-                        var parsed = engine.Parse(DecryptCoreJsCodeString.Content);
-                        var d = req.ToJson();
-                        dynamic jsResult = parsed.CallMethod("start", d);
-                        p_arams = jsResult.p_arams as string;
-                        encSecKey = jsResult.encSecKey as string;
-                    }
-                }
-                catch (Exception ex)
-                {
-                    throw new Exception("执行js代码失败", ex);
-                }
-
-
+                var d = req.ToJson();
+                var jsResult = NeteaseMusicCoreJsService.ExecuteCoreJs(d);
+                var p_arams = jsResult.Item1;
+                var encSecKey = jsResult.Item2;
                 var postData = new Dictionary<string, string>();
                 postData.Add("params", p_arams);
                 postData.Add("encSecKey", encSecKey);
