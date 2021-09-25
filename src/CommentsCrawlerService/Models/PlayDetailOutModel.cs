@@ -7,9 +7,7 @@ using System.Threading.Tasks;
 namespace CommentsCrawlerService.Models
 {
 
-    /// <summary>
-    /// 用户歌单详情数据模型类
-    /// </summary>
+
     public class PlayDetailOutModel
     {
         /// <summary>
@@ -44,6 +42,135 @@ namespace CommentsCrawlerService.Models
 
 
 
+    public class SubscribersItem
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        public string defaultAvatar { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public long province { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public long authStatus { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public string followed { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public string avatarUrl { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public long accountStatus { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public long gender { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public long city { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public long birthday { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public long userId { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public long userType { get; set; }
+        /// <summary>
+        /// 柆尐
+        /// </summary>
+        public string nickname { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public string signature { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public string description { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public string detailDescription { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public long avatarImgId { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public long backgroundImgId { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public string backgroundUrl { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public long authority { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public string mutual { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public string expertTags { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public string experts { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public long djStatus { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public long vipType { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public string remarkName { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public long authenticationTypes { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public string avatarDetail { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public string anchor { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public string avatarImgIdStr { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public string backgroundImgIdStr { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public string avatarImgId_str { get; set; }
+    }
+
+
     public class ArItem
     {
         /// <summary>
@@ -51,17 +178,17 @@ namespace CommentsCrawlerService.Models
         /// </summary>
         public long id { get; set; }
         /// <summary>
-        /// 张玮玮
+        /// 
         /// </summary>
         public string name { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public List<string> tns { get; set; }
+        public List<object> tns { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public List<string> @alias { get; set; }
+        public List<object> alias { get; set; }
     }
 
     public class Al
@@ -71,7 +198,7 @@ namespace CommentsCrawlerService.Models
         /// </summary>
         public long id { get; set; }
         /// <summary>
-        /// 白银饭店
+        /// 
         /// </summary>
         public string name { get; set; }
         /// <summary>
@@ -81,51 +208,15 @@ namespace CommentsCrawlerService.Models
         /// <summary>
         /// 
         /// </summary>
-        public List<string> tns { get; set; }
+        public List<object> tns { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public string pic_str { get; set; }
         /// <summary>
         /// 
         /// </summary>
         public long pic { get; set; }
-    }
-
-    public class H
-    {
-        /// <summary>
-        /// 
-        /// </summary>
-        public long br { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public long fid { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public long size { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public long vd { get; set; }
-    }
-
-    public class M
-    {
-        /// <summary>
-        /// 
-        /// </summary>
-        public long br { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public long fid { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public long size { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public long vd { get; set; }
     }
 
     public class L
@@ -142,6 +233,8 @@ namespace CommentsCrawlerService.Models
         /// 
         /// </summary>
         public long size { get; set; }
+
+
         /// <summary>
         /// 
         /// </summary>
@@ -151,7 +244,7 @@ namespace CommentsCrawlerService.Models
     public class TracksItem
     {
         /// <summary>
-        /// 米店
+        /// 
         /// </summary>
         public string name { get; set; }
         /// <summary>
@@ -161,147 +254,147 @@ namespace CommentsCrawlerService.Models
         /// <summary>
         /// 
         /// </summary>
-        public long pst { get; set; }
+        //public long pst { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public long t { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public long t { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public List<ArItem> ar { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public List<string> alia { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public long pop { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public long st { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public string rt { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public long fee { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public long v { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public string crbt { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public string cf { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public Al al { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public long dt { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public H h { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public M m { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public L l { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public string a { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public string cd { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public long no { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public string rtUrl { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public long ftype { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public List<string> rtUrls { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public long djId { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public long copyright { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public long s_id { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public long mark { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public long originCoverType { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public string originSongSimpleData { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public long single { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public string noCopyrightRcmd { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public string rurl { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public long mst { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public long cp { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public long rtype { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public long mv { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public long publishTime { get; set; }
+        //public List<ArItem> ar { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public List<object> alia { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public long pop { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public long st { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public string rt { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public long fee { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public long v { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public string crbt { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public string cf { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public Al al { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public long dt { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public string h { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public string m { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public L l { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public string a { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public string cd { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public long no { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public string rtUrl { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public long ftype { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public List<string> rtUrls { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public long djId { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public long copyright { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public long s_id { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public long mark { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public long originCoverType { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public string originSongSimpleData { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public long single { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public string noCopyrightRcmd { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public long rtype { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public string rurl { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public long mst { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public long cp { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public long mv { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public long publishTime { get; set; }
     }
 
     public class TrackIdsItem
@@ -343,7 +436,7 @@ namespace CommentsCrawlerService.Models
         /// </summary>
         public long id { get; set; }
         /// <summary>
-        /// 很喜欢的中文歌曲
+        /// 「灵魂枯萎」寂静是末日最后的信
         /// </summary>
         public string name { get; set; }
         /// <summary>
@@ -430,8 +523,10 @@ namespace CommentsCrawlerService.Models
         /// 
         /// </summary>
         public string ordered { get; set; }
+
+
         /// <summary>
-        /// 
+        /// december 20th, 2010
         /// </summary>
         public string description { get; set; }
         /// <summary>
@@ -469,7 +564,7 @@ namespace CommentsCrawlerService.Models
         /// <summary>
         /// 
         /// </summary>
-        public List<string> subscribers { get; set; }
+        public List<SubscribersItem> subscribers { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -491,7 +586,7 @@ namespace CommentsCrawlerService.Models
         /// </summary>
         public string videos { get; set; }
         /// <summary>
-        /// 
+        /// 歌曲id 全部
         /// </summary>
         public List<TrackIdsItem> trackIds { get; set; }
         /// <summary>
@@ -644,5 +739,5 @@ namespace CommentsCrawlerService.Models
         public List<ChargeInfoListItem> chargeInfoList { get; set; }
     }
 
- 
+
 }

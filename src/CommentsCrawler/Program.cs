@@ -31,7 +31,13 @@ namespace CommentsCrawler
 
 
             UserPlayDetailService playDetailService = new UserPlayDetailService();
-            var data = playDetailService.GetPlayDetail("6915994263");
+            var data = playDetailService.GetPlayDetail("605829259");
+            foreach (var item in data.playlist.tracks)
+            {
+                Console.WriteLine(item.name);
+                Console.WriteLine();
+            }
+
 
             Console.WriteLine("程序结束……");
             Console.ReadKey();
