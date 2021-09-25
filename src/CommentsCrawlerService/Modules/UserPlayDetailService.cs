@@ -31,7 +31,8 @@ namespace CommentsCrawlerService.Modules
                 }
 
                 var url = NeteaseMusicApiUrlManage.PlayDetail + id;
-                var res = HttpMethods.Get(url, TimeSpan.FromSeconds(1));
+                //var res = HttpMethods.Get(url, TimeSpan.FromSeconds(5));
+                var res = HttpMethods.Get(url);
                 var data = res.ToObject<PlayDetailOutModel>();
                 return data;
             }

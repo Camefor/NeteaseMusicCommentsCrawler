@@ -2,6 +2,7 @@
 using Camefor.Tools.NetCore.Util;
 using Camefor.Tools.NetCore.Util.Web;
 using CommentsCrawlerService.Config;
+using CommentsCrawlerService.Infrastructure.Redis;
 using CommentsCrawlerService.Modules;
 using System;
 using System.Collections.Generic;
@@ -30,14 +31,23 @@ namespace CommentsCrawler
             //}
 
 
-            UserPlayDetailService playDetailService = new UserPlayDetailService();
-            var data = playDetailService.GetPlayDetail("605829259");
-            foreach (var item in data.playlist.tracks)
-            {
-                Console.WriteLine(item.name);
-                Console.WriteLine();
-            }
+            //UserPlayDetailService playDetailService = new UserPlayDetailService();
+            //var data = playDetailService.GetPlayDetail("530521582");
+            //foreach (var item in data.playlist.trackIds)
+            //{
+            //    //歌曲id
+            //    Console.WriteLine(item.id);
+            //    Console.WriteLine();
+            //}
 
+            GlobalStateData.uid = "346539201";
+
+            //测试：歌曲id
+            //1472703576
+
+
+            MusicCommentsService musicCommentsService = new MusicCommentsService();
+            musicCommentsService.GetComments("1472703576");
 
             Console.WriteLine("程序结束……");
             Console.ReadKey();
