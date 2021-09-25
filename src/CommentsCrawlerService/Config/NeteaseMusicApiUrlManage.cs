@@ -13,7 +13,7 @@ namespace CommentsCrawlerService.Config
     {
 
         /// <summary>
-        /// 获取用户歌单列表api
+        /// 获取用户歌单列表api 网易云音乐官方api
         /// </summary>
         public static string PlayList
         {
@@ -24,11 +24,14 @@ namespace CommentsCrawlerService.Config
         }
 
 
-        public static string PlayListUrl
+        /// <summary>
+        /// 获取用户歌单详情 第三方封装api
+        /// </summary>
+        public static string PlayDetail
         {
             get
             {
-                return "";
+                return "http://camefor.top:3000/playlist/detail?id=";
             }
         }
     }

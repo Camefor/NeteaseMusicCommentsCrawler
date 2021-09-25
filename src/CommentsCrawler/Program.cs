@@ -14,33 +14,24 @@ namespace CommentsCrawler
         static void Main(string[] args)
         {
 
-            using (PerformanceTester performanceTester = new PerformanceTester())
-            {
-                UserPlayListService playLIstService = new UserPlayListService();
-                var result = playLIstService.GetPlayList(new CommentsCrawlerService.Models.PlayListRequestModel
-                {
-                    uid = "346539201"
-                });
-                foreach (var item in result.playlist)
-                {
-                    Console.WriteLine(item.name);
-                    Console.WriteLine();
-                }
-
-                Console.WriteLine("耗时： " + performanceTester.Result.TotalMilliseconds + "毫秒");
-            }
-
-
-
-
-            //using (ScriptEngine engine = new ScriptEngine("jscript"))
+            //using (PerformanceTester performanceTester = new PerformanceTester())
             //{
-            //    var parsed = engine.Parse(DecryptCoreJsCodeString.TestContent);
-            //    dynamic res = parsed.CallMethod("getNumber", "测试执行js");
-            //    Console.WriteLine(res.name);
-            //    Console.WriteLine(res.value);
+            //    UserPlayListService playLIstService = new UserPlayListService();
+            //    var result = playLIstService.GetPlayList(new CommentsCrawlerService.Models.PlayListRequestModel
+            //    {
+            //        uid = "346539201"
+            //    });
+            //    foreach (var item in result.playlist)
+            //    {
+            //        Console.WriteLine(item.name);
+            //        Console.WriteLine();
+            //    }
+            //    Console.WriteLine("耗时： " + performanceTester.Result.TotalMilliseconds + "毫秒");
             //}
 
+
+            UserPlayDetailService playDetailService = new UserPlayDetailService();
+            var data = playDetailService.GetPlayDetail("6915994263");
 
             Console.WriteLine("程序结束……");
             Console.ReadKey();

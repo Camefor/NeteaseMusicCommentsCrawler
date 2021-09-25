@@ -35,6 +35,13 @@ namespace Camefor.Tools.NetCore.Util.Web
             HttpClient httpClient = CreateHttpClient(url);
             Task<string> result = httpClient.GetAsync(url).Result.Content.ReadAsStringAsync();
             return result.Result;
+        }   
+        public static string Get(string url,TimeSpan timeOut)
+        {
+            HttpClient httpClient = CreateHttpClient(url);
+            httpClient.Timeout = timeOut;
+            Task<string> result = httpClient.GetAsync(url).Result.Content.ReadAsStringAsync();
+            return result.Result;
         }
 
         #endregion 
