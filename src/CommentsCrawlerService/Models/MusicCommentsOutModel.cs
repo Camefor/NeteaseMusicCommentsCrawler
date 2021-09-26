@@ -43,7 +43,7 @@ namespace CommentsCrawlerService.Models
         /// <summary>
         /// 
         /// </summary>
-        public string musicPackage { get; set; }
+        //public string musicPackage { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -79,7 +79,7 @@ namespace CommentsCrawlerService.Models
         /// <summary>
         /// 
         /// </summary>
-        public VipRights vipRights { get; set; }
+        //public VipRights vipRights { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -111,7 +111,7 @@ namespace CommentsCrawlerService.Models
         /// <summary>
         /// 
         /// </summary>
-        public string expertTags { get; set; }
+        //public string expertTags { get; set; }
         /// <summary>
         /// 
         /// </summary>

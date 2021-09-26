@@ -1,4 +1,5 @@
 ﻿using Camefor.Tools.NetCore.Util;
+using Camefor.Tools.NetCore.Util.Log;
 using Camefor.Tools.NetCore.Util.Web;
 using CommentsCrawlerService.Config;
 using CommentsCrawlerService.Infrastructure.Redis;
@@ -39,9 +40,12 @@ namespace CommentsCrawlerService.Modules
                 var thisMusic = musicDetailService.GetMusicSimpleItem(trackid.ToInt());
                 var id = $"R_SO_4_{trackid.Trim()}";
 
+
+                EventLog _log = new EventLog(thisMusic.name + "_的评论数据");
+
                 //默认先请求第一页评论
                 int pageNo = 1;
-                int pageSize = 20;
+                int pageSize = 40;
                 int offset = 0;
 
                 var d = new MusicCommentsRequestModel
@@ -56,31 +60,51 @@ namespace CommentsCrawlerService.Modules
                 };
                 var data = ExecuteRequestComments(d.ToJson());
 
-                processingMusicCommentsService.MatchCommntsData(thisMusic, data.data.comments);
+                //var allCommentsJsonBuilderList = new List<string>();
 
+
+
+                //allCommentsJsonBuilderList.Add(data.data.comments.ToJson());
+
+                //var allCommentsList = data.data.comments.Select(c => new { c.content, c.commentId }).ToList();
+
+
+                processingMusicCommentsService.MatchCommntsData(thisMusic, data.data.comments);
                 var totalCount = 0L;//评论总数
 
                 //根据评论总数 连续翻页
                 totalCount = data.data.totalCount;
 
                 //需要的请求次数
-                var reqCount = (totalCount / 20) + 1;
+                var reqCount = (totalCount / pageSize) + 1;
                 //已经请求 第一页数据了
                 //从第二页开始
 
                 for (int i = 0; i < reqCount; i++)
                 {
                     pageNo++;
-                    offset = 40;
+                    //offset = (pageNo - 1) * pageSize;
+                    offset = 80;
+
                     Console.WriteLine($"正在获取第 {pageNo} 页评论数据");
 
 
                     d.offset = offset.ToStr();
                     d.pageNo = pageNo.ToStr();
-                    Thread.Sleep(200);
+                    Thread.Sleep(100);
 
-                    processingMusicCommentsService.MatchCommntsData(thisMusic, ExecuteRequestComments(d.ToJson()).data.comments);
+                    var tempData = ExecuteRequestComments(d.ToJson());
+
+                    //allCommentsJsonBuilderList.Add(tempData.data.comments.ToJson());
+                    //allCommentsList.AddRange(tempData.data.comments.Select(c => new { c.content, c.commentId }).ToList());
+
+                    processingMusicCommentsService.MatchCommntsData(thisMusic, tempData.data.comments);
                 }
+
+                //查看评论数据完整性
+                //var see = allCommentsJsonBuilderList;
+                //var see = allCommentsList;
+                //var seeed = see.DistinctBy(c => c.commentId).ToList();
 
                 return data;
             }
@@ -106,6 +130,16 @@ namespace CommentsCrawlerService.Modules
             return res.ToObject<MusicCommentsOutModel>();
         }
 
+
+        /// <summary>
+        /// 歌曲评论 第三方封装api接口
+        /// </summary>
+        /// <param name="id"></param>
+        public void GetCommentsFrom_neteasecloudmusicapi(long id)
+        {
+
+
+        }
 
     }
 
