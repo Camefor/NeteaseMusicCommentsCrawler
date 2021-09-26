@@ -32,13 +32,25 @@ namespace CommentsCrawlerService.Modules
 
                 var url = NeteaseMusicApiUrlManage.PlayDetail + id;
                 //var res = HttpMethods.Get(url, TimeSpan.FromSeconds(5));
-                var res = HttpMethods.Get(url);
+
+                //TODO: 从登陆接口中获取cookie 
+
+                Dictionary<string, string> cookies = new Dictionary<string, string>();
+                cookies.Add("__csrf", "xxxx");
+                cookies.Add("MUSIC_U", "xxx");
+                cookies.Add("NMTID", "xxxx");
+                var res = HttpMethods.Get(url, cookies);
                 var data = res.ToObject<PlayDetailOutModel>();
+
+                if (data.code == 20001)
+                {
+                    throw new Exception("登陆过期，请重新登陆！");
+                }
                 return data;
             }
             catch (Exception ex)
             {
-                return null;
+                throw new InvalidOperationException("获取 一个歌单的详情数据 失败", ex);
             }
 
         }

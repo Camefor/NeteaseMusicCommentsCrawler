@@ -48,7 +48,7 @@ namespace CommentsCrawlerService.Modules
 
             catch (Exception ex)
             {
-                return null;
+                throw new Exception("获取用户歌单列表失败", ex);
             }
 
         }

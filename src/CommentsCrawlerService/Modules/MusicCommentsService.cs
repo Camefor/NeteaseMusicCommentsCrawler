@@ -79,7 +79,7 @@ namespace CommentsCrawlerService.Modules
                 var reqCount = (totalCount / pageSize) + 1;
                 //已经请求 第一页数据了
                 //从第二页开始
-
+                MusicCommentsOutModel tempData = null;
                 for (int i = 0; i < reqCount; i++)
                 {
                     pageNo++;
@@ -93,7 +93,8 @@ namespace CommentsCrawlerService.Modules
                     d.pageNo = pageNo.ToStr();
                     Thread.Sleep(100);
 
-                    var tempData = ExecuteRequestComments(d.ToJson());
+                    tempData = null;
+                    tempData = ExecuteRequestComments(d.ToJson());
 
                     //allCommentsJsonBuilderList.Add(tempData.data.comments.ToJson());
                     //allCommentsList.AddRange(tempData.data.comments.Select(c => new { c.content, c.commentId }).ToList());
@@ -110,7 +111,7 @@ namespace CommentsCrawlerService.Modules
             }
             catch (Exception ex)
             {
-                return null;
+                throw new Exception("获取歌曲评论失败", ex);
             }
 
         }
@@ -118,16 +119,23 @@ namespace CommentsCrawlerService.Modules
 
         private MusicCommentsOutModel ExecuteRequestComments(string d)
         {
-            var jsResult = NeteaseMusicCoreJsService.ExecuteCoreJs(d);
-            var p_arams = jsResult.Item1;
-            var encSecKey = jsResult.Item2;
-            var postData = new Dictionary<string, string>
+            try
+            {
+                var jsResult = NeteaseMusicCoreJsService.ExecuteCoreJs(d);
+                var p_arams = jsResult.Item1;
+                var encSecKey = jsResult.Item2;
+                var postData = new Dictionary<string, string>
                      {
                             { "params", p_arams },
                             { "encSecKey", encSecKey }
                      };
-            var res = HttpMethods.Post(NeteaseMusicApiUrlManage.MusicComments, postData);
-            return res.ToObject<MusicCommentsOutModel>();
+                var res = HttpMethods.Post(NeteaseMusicApiUrlManage.MusicComments, postData);
+                return res.ToObject<MusicCommentsOutModel>();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("歌曲评论数据反序列化失败", ex);
+            }
         }
 
 

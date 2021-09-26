@@ -63,11 +63,11 @@ namespace CommentsCrawlerService.Models
         /// <summary>
         /// 
         /// </summary>
-        public string commonIdentity { get; set; }
+        //public string commonIdentity { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public string locationInfo { get; set; }
+        //public string locationInfo { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -232,35 +232,35 @@ namespace CommentsCrawlerService.Models
         /// <summary>
         /// 
         /// </summary>
-        public ShowFloorComment showFloorComment { get; set; }
+        //public ShowFloorComment showFloorComment { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public Decoration decoration { get; set; }
+        //public Decoration decoration { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public long commentLocationType { get; set; }
+       // public long commentLocationType { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public string args { get; set; }
+      //  public string args { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public Tag tag { get; set; }
+     //   public Tag tag { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public string source { get; set; }
+        //public string source { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public ExtInfo extInfo { get; set; }
+      //  public ExtInfo extInfo { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public string commentVideoVO { get; set; }
+      //  public string commentVideoVO { get; set; }
     }
 
     public class SortTypeListItem

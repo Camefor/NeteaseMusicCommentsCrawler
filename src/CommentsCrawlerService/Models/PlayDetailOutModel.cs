@@ -400,7 +400,7 @@ namespace CommentsCrawlerService.Models
     public class TrackIdsItem
     {
         /// <summary>
-        /// 
+        /// 歌曲id
         /// </summary>
         public long id { get; set; }
         /// <summary>
@@ -700,7 +700,7 @@ namespace CommentsCrawlerService.Models
         /// <summary>
         /// 
         /// </summary>
-        public string pc { get; set; }
+        //public string pc { get; set; }
         /// <summary>
         /// 
         /// </summary>

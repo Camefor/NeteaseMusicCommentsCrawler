@@ -1,4 +1,5 @@
-﻿using CommentsCrawlerService.Config;
+﻿using Camefor.Tools.NetCore.Util;
+using CommentsCrawlerService.Config;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,8 +17,13 @@ namespace CommentsCrawlerService.Modules
         private readonly UserPlayListService _userPlayListService = new UserPlayListService();
         private readonly UserPlayDetailService _userPlayDetailService = new UserPlayDetailService();
         private readonly MusicCommentsService _musicCommentsService = new MusicCommentsService();
+        private readonly ProcessingMusicCommentsService _processingMusicCommentsService = new ProcessingMusicCommentsService();
+        private readonly MusicDetailService _musicDetailService = new MusicDetailService();
 
-
+        /// <summary>
+        /// 要查询的用户id
+        /// </summary>
+        public string _uid { get; set; }
 
         /// <summary>
         /// ctor
@@ -26,10 +32,47 @@ namespace CommentsCrawlerService.Modules
         public MainService(string atargetUserId)
         {
             GlobalStateData.uid = atargetUserId;
+            _uid = atargetUserId;
         }
 
 
+        public void Main()
+        {
+            var req = new Models.PlayListRequestModel { uid = _uid };
 
+            Console.WriteLine("正在获取用户歌单列表数据……");
+            var allPlayList = _userPlayListService.GetPlayList(req);
+            if (allPlayList?.code == 200)
+            {
+                Console.WriteLine($"获取用户歌单列表成功，共有 {allPlayList.playlist?.Count} 个歌单");
+
+                //一个用户的所有歌单 
+                foreach (var play in allPlayList.playlist)
+                {
+                    Console.WriteLine($"正在获取用户 {play.name} 歌单详情数据……");
+                    //一个歌单里面所有的歌曲id  
+                    var playDetailList = _userPlayDetailService.GetPlayDetail(play.id.ToStr());
+
+                    if (playDetailList.code == 200)
+                    {
+                        Console.WriteLine($"获取歌单中歌曲完成 共 {playDetailList.playlist.trackIds.Count} 首歌曲");
+
+                        foreach (var trackId in playDetailList.playlist.trackIds)
+                        {
+                            //得到评论数据 且匹配目标数据
+                            _ = _musicCommentsService.GetComments(trackId.id.ToStr());
+                        }
+                    }
+                   
+                }
+            }
+            else
+            {
+                Console.WriteLine(" 获取用户歌单列表数据失败！");
+            }
+
+
+        }
 
     }
 }
