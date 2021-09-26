@@ -33,8 +33,10 @@ namespace CommentsCrawlerService.Modules
                 {
                     return null;
                 }
+                ProcessingMusicCommentsService processingMusicCommentsService = new ProcessingMusicCommentsService();
+                MusicDetailService musicDetailService = new MusicDetailService();
 
-
+                var thisMusic = musicDetailService.GetMusicSimpleItem(trackid.ToInt());
                 var id = $"R_SO_4_{trackid.Trim()}";
 
                 //默认先请求第一页评论
@@ -54,7 +56,7 @@ namespace CommentsCrawlerService.Modules
                 };
                 var data = ExecuteRequestComments(d.ToJson());
 
-                UpdateCommntsData(data.data.comments);
+                processingMusicCommentsService.MatchCommntsData(thisMusic, data.data.comments);
 
                 var totalCount = 0L;//评论总数
 
@@ -76,7 +78,8 @@ namespace CommentsCrawlerService.Modules
                     d.offset = offset.ToStr();
                     d.pageNo = pageNo.ToStr();
                     Thread.Sleep(200);
-                    UpdateCommntsData(ExecuteRequestComments(d.ToJson()).data.comments);
+
+                    processingMusicCommentsService.MatchCommntsData(thisMusic, ExecuteRequestComments(d.ToJson()).data.comments);
                 }
 
                 return data;
@@ -88,40 +91,6 @@ namespace CommentsCrawlerService.Modules
 
         }
 
-        private void UpdateCommntsData(List<CommentsItem> commentList)
-        {
-            //存储
-            //var list = RedisHelper.StringGet<List<CommentsItem>>("list");
-            //if (list == null)
-            //{
-            //    list = new List<CommentsItem>();
-            //}
-
-            //list.AddRange(commentList);
-            //RedisHelper.Set("list", list);
-
-            //判断 没有就丢弃
-
-            var targetList = commentList.Where(_ => _.user.userId.ToStr() == GlobalStateData.uid)?.ToList();
-            if (targetList == null)
-            {
-                return;
-            }
-            foreach (var item in targetList)
-            {
-                Console.WriteLine("发现了" + "\r\n" + item.content);
-            }
-            var tarKey = GlobalStateData.uid + "targetList";
-            var res = RedisHelper.Get(tarKey);
-            var listInCache = res.ToObject<List<CommentsItem>>();
-            if (listInCache == null)
-            {
-                listInCache = new List<CommentsItem>();
-            }
-            listInCache.AddRange(targetList);
-            RedisHelper.Set(tarKey, listInCache);
-
-        }
 
         private MusicCommentsOutModel ExecuteRequestComments(string d)
         {

@@ -33,9 +33,9 @@ namespace CommentsCrawlerService.Config
             {
                 return "http://camefor.top:3000/playlist/detail?id=";
             }
-        }    
-        
-        
+        }
+
+
         /// <summary>
         /// 获取歌曲评论api 官方
         /// </summary>
@@ -44,6 +44,17 @@ namespace CommentsCrawlerService.Config
             get
             {
                 return "https://music.163.com/weapi/comment/resource/comments/get?csrf_token=";
+            }
+        }
+
+        /// <summary>
+        /// 获取歌曲详情 api 第三方
+        /// </summary>
+        public static string MusicDetail
+        {
+            get
+            {
+                return "http://camefor.top:3000/song/detail?ids=";
             }
         }
     }

@@ -40,18 +40,40 @@ namespace CommentsCrawler
             //    Console.WriteLine();
             //}
 
-            GlobalStateData.uid = "346539201";
+
+            //GlobalStateData.uid = "346539201";
+
 
             //测试：歌曲id
             //1472703576
-
-
             MusicCommentsService musicCommentsService = new MusicCommentsService();
-            musicCommentsService.GetComments("1472703576");
+            musicCommentsService.GetComments("31048600");
+
 
             Console.WriteLine("程序结束……");
             Console.ReadKey();
 
         }
+
+        public static DateTime UnixTimeStampToDateTime(long unixTimeStamp)
+        {
+            // Unix timestamp is seconds past epoch
+            DateTime dateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
+            dateTime = dateTime.AddSeconds(unixTimeStamp).ToLocalTime();
+            return dateTime;
+        }
+
+
+        /// <summary>
+        /// 根据时间戳timestamp（单位毫秒）计算日期
+        /// </summary>
+        public static DateTime NewDate(long timestamp)
+        {
+            DateTime dt1970 = new DateTime(1970, 1, 1, 0, 0, 0, 0);
+            long t = dt1970.Ticks + timestamp * 10000;
+            return new DateTime(t).ToUniversalTime();
+        }
+
+
     }
 }
