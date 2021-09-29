@@ -17,7 +17,7 @@ namespace CommentsCrawlerService.Models
         /// <summary>
         /// 
         /// </summary>
-        public string relatedVideos { get; set; }
+     //   public string relatedVideos { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -25,19 +25,19 @@ namespace CommentsCrawlerService.Models
         /// <summary>
         /// 
         /// </summary>
-        public string urls { get; set; }
+    //    public string urls { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public List<PrivilegesItem> privileges { get; set; }
+   //     public List<PrivilegesItem> privileges { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public string sharedPrivilege { get; set; }
+     //   public string sharedPrivilege { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public string resEntrance { get; set; }
+       // public string resEntrance { get; set; }
     }
 
 
@@ -406,27 +406,27 @@ namespace CommentsCrawlerService.Models
         /// <summary>
         /// 
         /// </summary>
-        public long v { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public long t { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public long at { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public string alg { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public long uid { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public string rcmdReason { get; set; }
+        //public long v { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public long t { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public long at { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public string alg { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public long uid { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public string rcmdReason { get; set; }
     }
 
     public class Playlist
@@ -442,145 +442,145 @@ namespace CommentsCrawlerService.Models
         /// <summary>
         /// 
         /// </summary>
-        public long coverImgId { get; set; }
+      //  public long coverImgId { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public string coverImgUrl { get; set; }
+     //   public string coverImgUrl { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public string coverImgId_str { get; set; }
+      //  public string coverImgId_str { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public long adType { get; set; }
+        //public long adType { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public long userId { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public long createTime { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public long status { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public long userId { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public long createTime { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public long status { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public string opRecommend { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public string highQuality { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public string newImported { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public long updateTime { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public long trackCount { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public long specialType { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public long privacy { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public long trackUpdateTime { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public string commentThreadId { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public long playCount { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public long trackNumberUpdateTime { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public long subscribedCount { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public long cloudTrackCount { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public string ordered { get; set; }
+        //public string opRecommend { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public string highQuality { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public string newImported { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public long updateTime { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public long trackCount { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public long specialType { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public long privacy { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public long trackUpdateTime { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public string commentThreadId { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public long playCount { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public long trackNumberUpdateTime { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public long subscribedCount { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public long cloudTrackCount { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public string ordered { get; set; }
 
 
-        /// <summary>
-        /// december 20th, 2010
-        /// </summary>
-        public string description { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public List<string> tags { get; set; }
+        ///// <summary>
+        ///// december 20th, 2010
+        ///// </summary>
+        //public string description { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public string updateFrequency { get; set; }
+    //    public List<string> tags { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public long backgroundCoverId { get; set; }
+   //     public string updateFrequency { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public string backgroundCoverUrl { get; set; }
+    //    public long backgroundCoverId { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public long titleImage { get; set; }
+     //   public string backgroundCoverUrl { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public string titleImageUrl { get; set; }
+     //   public long titleImage { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public string englishTitle { get; set; }
+    //    public string titleImageUrl { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public string officialPlaylistType { get; set; }
+  //      public string englishTitle { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public List<SubscribersItem> subscribers { get; set; }
+    //   public string officialPlaylistType { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public string subscribed { get; set; }
+   //     public List<SubscribersItem> subscribers { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public Creator creator { get; set; }
+      //  public string subscribed { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public List<TracksItem> tracks { get; set; }
+     //   public Creator creator { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public string videoIds { get; set; }
+   //     public List<TracksItem> tracks { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+     //   public string videoIds { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -600,15 +600,15 @@ namespace CommentsCrawlerService.Models
         /// <summary>
         /// 
         /// </summary>
-        public string remixVideo { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public string sharedUsers { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public string historySharedUsers { get; set; }
+        //public string remixVideo { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public string sharedUsers { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public string historySharedUsers { get; set; }
     }
 
     public class FreeTrialPrivilege

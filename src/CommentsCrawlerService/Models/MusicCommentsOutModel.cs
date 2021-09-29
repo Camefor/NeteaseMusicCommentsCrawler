@@ -71,11 +71,11 @@ namespace CommentsCrawlerService.Models
         /// <summary>
         /// 
         /// </summary>
-        public string liveInfo { get; set; }
+     //   public string liveInfo { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public string followed { get; set; }
+     //   public string followed { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -83,11 +83,11 @@ namespace CommentsCrawlerService.Models
         /// <summary>
         /// 
         /// </summary>
-        public string relationTag { get; set; }
+     //   public string relationTag { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public long anonym { get; set; }
+    //    public long anonym { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -95,19 +95,19 @@ namespace CommentsCrawlerService.Models
         /// <summary>
         /// 
         /// </summary>
-        public long userType { get; set; }
+      //  public long userType { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public string nickname { get; set; }
+       // public string nickname { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public string avatarUrl { get; set; }
+      //  public string avatarUrl { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public long authStatus { get; set; }
+       // public long authStatus { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -216,15 +216,15 @@ namespace CommentsCrawlerService.Models
         /// <summary>
         /// 
         /// </summary>
-        public string expressionUrl { get; set; }
+       // public string expressionUrl { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public long parentCommentId { get; set; }
+        //public long parentCommentId { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public string repliedMark { get; set; }
+      //  public string repliedMark { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -288,7 +288,7 @@ namespace CommentsCrawlerService.Models
         /// <summary>
         /// 
         /// </summary>
-        public string currentComment { get; set; }
+        //public string currentComment { get; set; }
         /// <summary>
         /// 评论总数
         /// </summary>
@@ -296,23 +296,23 @@ namespace CommentsCrawlerService.Models
         /// <summary>
         /// 
         /// </summary>
-        public string hasMore { get; set; }
+       // public string hasMore { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public string cursor { get; set; }
+       // public string cursor { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public long sortType { get; set; }
+      //  public long sortType { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public List<SortTypeListItem> sortTypeList { get; set; }
+     //   public List<SortTypeListItem> sortTypeList { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public string orderType { get; set; }
+        // string orderType { get; set; }
         /// <summary>
         /// 
         /// </summary>

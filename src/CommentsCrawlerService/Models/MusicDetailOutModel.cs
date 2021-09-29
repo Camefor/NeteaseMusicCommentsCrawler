@@ -18,7 +18,7 @@ namespace CommentsCrawlerService.Models
         /// <summary>
         /// 
         /// </summary>
-        public List<PrivilegesItem> privileges { get; set; }
+       // public List<PrivilegesItem> privileges { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -142,151 +142,151 @@ namespace CommentsCrawlerService.Models
         /// <summary>
         /// 
         /// </summary>
-        public List<ArItem> ar { get; set; }
+     //   public List<ArItem> ar { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public List<string> alia { get; set; }
+     //   public List<string> alia { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public long pop { get; set; }
+        //public long pop { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public long st { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public string rt { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public long fee { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public long v { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public string crbt { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public string cf { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public Al al { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public long st { get; set; }
+        //public long dt { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public H h { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public M m { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public L l { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public string a { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public string cd { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public long no { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public string rtUrl { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public long ftype { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public List<string> rtUrls { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public long djId { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public string rt { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public long fee { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public long v { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public string crbt { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public string cf { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public Al al { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public long dt { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public H h { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public M m { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public L l { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public string a { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public string cd { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public long no { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public string rtUrl { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public long ftype { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public List<string> rtUrls { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public long djId { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public long copyright { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public long s_id { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public long mark { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public long originCoverType { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public OriginSongSimpleData originSongSimpleData { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public string tagPicList { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public string resourceState { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public long version { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public string songJumpInfo { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public long single { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public string noCopyrightRcmd { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public long mst { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public long cp { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public long rtype { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public string rurl { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public long mv { get; set; }
+        //public long copyright { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public long s_id { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public long mark { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public long originCoverType { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public OriginSongSimpleData originSongSimpleData { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public string tagPicList { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public string resourceState { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public long version { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public string songJumpInfo { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public long single { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public string noCopyrightRcmd { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public long mst { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public long cp { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public long rtype { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public string rurl { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public long mv { get; set; }
         /// <summary>
         /// 
         /// </summary>
