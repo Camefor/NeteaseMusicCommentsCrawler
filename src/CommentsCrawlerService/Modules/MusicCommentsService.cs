@@ -19,29 +19,38 @@ namespace CommentsCrawlerService.Modules
     /// </summary>
     public class MusicCommentsService
     {
+        ProcessingMusicCommentsService processingMusicCommentsService = new ProcessingMusicCommentsService();
+        MusicDetailService musicDetailService = new MusicDetailService();
+        HttpClientStream _httpClient = new HttpClientStream();
+
+
+        private MusicCommentsOutModel _data = null;
 
         /// <summary>
         /// 获取歌曲评论
         /// </summary>
         /// <param name="trackid">歌曲id</param>
         /// <returns></returns>
-        public MusicCommentsOutModel GetComments(string trackid)
+        public async Task GetComments(string trackid, string targetUserId)
         {
 
             try
             {
                 if (string.IsNullOrEmpty(trackid))
                 {
-                    return null;
+                    return;
                 }
-                ProcessingMusicCommentsService processingMusicCommentsService = new ProcessingMusicCommentsService();
-                MusicDetailService musicDetailService = new MusicDetailService();
 
                 var thisMusic = musicDetailService.GetMusicSimpleItem(trackid.ToInt());
+
+                Console.WriteLine("\r\n");
+                Console.WriteLine($"正在获取歌曲 {thisMusic.name} 的评论数据");
+                Console.WriteLine("\r\n");
+
                 var id = $"R_SO_4_{trackid.Trim()}";
 
 
-                EventLog _log = new EventLog(thisMusic.name + "_的评论数据");
+                //EventLog _log = new EventLog(thisMusic.name + "_的评论数据");
 
                 //默认先请求第一页评论
                 int pageNo = 1;
@@ -58,28 +67,31 @@ namespace CommentsCrawlerService.Modules
                     offset = offset.ToStr(),
                     orderType = "1"
                 };
-                var data = ExecuteRequestComments(d.ToJson());
+                var url = new NeteaseMusicApiUrlManage().MusicComments;
+
+                string totalCountStr = string.Empty;
+
 
                 //var allCommentsJsonBuilderList = new List<string>();
-
 
 
                 //allCommentsJsonBuilderList.Add(data.data.comments.ToJson());
 
                 //var allCommentsList = data.data.comments.Select(c => new { c.content, c.commentId }).ToList();
 
-
-                processingMusicCommentsService.MatchCommntsData(thisMusic, data.data.comments);
-                var totalCount = 0L;//评论总数
+                _data = null;
+                _data = await ExecuteRequestComments(url, d.ToJson(), targetUserId);
+                processingMusicCommentsService.MatchCommntsData(thisMusic, _data.data.comments, targetUserId);
 
                 //根据评论总数 连续翻页
-                totalCount = data.data.totalCount;
+                //评论总数
+                var totalCount = _data.data.totalCount;
+
 
                 //需要的请求次数
                 var reqCount = (totalCount / pageSize) + 1;
                 //已经请求 第一页数据了
                 //从第二页开始
-                MusicCommentsOutModel tempData = null;
                 for (int i = 0; i < reqCount; i++)
                 {
                     pageNo++;
@@ -88,18 +100,15 @@ namespace CommentsCrawlerService.Modules
 
                     Console.WriteLine($"正在获取第 {pageNo} 页评论数据");
 
-
                     d.offset = offset.ToStr();
                     d.pageNo = pageNo.ToStr();
                     Thread.Sleep(100);
-
-                    tempData = null;
-                    tempData = ExecuteRequestComments(d.ToJson());
+                    _data = null;
+                    _data = await ExecuteRequestComments(url, d.ToJson(), targetUserId);
+                    processingMusicCommentsService.MatchCommntsData(thisMusic, _data.data.comments, targetUserId);
 
                     //allCommentsJsonBuilderList.Add(tempData.data.comments.ToJson());
                     //allCommentsList.AddRange(tempData.data.comments.Select(c => new { c.content, c.commentId }).ToList());
-
-                    processingMusicCommentsService.MatchCommntsData(thisMusic, tempData.data.comments);
                 }
 
                 //查看评论数据完整性
@@ -107,7 +116,7 @@ namespace CommentsCrawlerService.Modules
                 //var see = allCommentsList;
                 //var seeed = see.DistinctBy(c => c.commentId).ToList();
 
-                return data;
+                //return data;
             }
             catch (Exception ex)
             {
@@ -117,7 +126,7 @@ namespace CommentsCrawlerService.Modules
         }
 
 
-        private MusicCommentsOutModel ExecuteRequestComments(string d)
+        private async Task<MusicCommentsOutModel> ExecuteRequestComments(string aurl, string d, string targetUserId, SongsSimpleItem thisMusic = null)
         {
             try
             {
@@ -129,8 +138,11 @@ namespace CommentsCrawlerService.Modules
                             { "params", p_arams },
                             { "encSecKey", encSecKey }
                      };
-                var res = HttpMethods.Post(NeteaseMusicApiUrlManage.MusicComments, postData);
-                return res.ToObject<MusicCommentsOutModel>();
+
+                //var res = HttpMethods.Post(NeteaseMusicApiUrlManage.MusicComments, postData);
+                //var data = res.ToObject<MusicCommentsOutModel>();
+
+                return await _httpClient.PostWithStream<MusicCommentsOutModel>(aurl, postData);
             }
             catch (Exception ex)
             {

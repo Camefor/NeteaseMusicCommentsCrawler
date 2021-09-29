@@ -17,6 +17,7 @@ namespace CommentsCrawlerService.Modules
     /// </summary>
     public class UserPlayListService
     {
+        private NeteaseMusicApiUrlManage neteaseMusicApiUrlManage = new NeteaseMusicApiUrlManage();
 
         /// <summary>
         /// 获取用户歌单列表
@@ -41,7 +42,7 @@ namespace CommentsCrawlerService.Modules
                 var postData = new Dictionary<string, string>();
                 postData.Add("params", p_arams);
                 postData.Add("encSecKey", encSecKey);
-                var res = HttpMethods.Post(NeteaseMusicApiUrlManage.PlayList, postData);
+                var res = HttpMethods.Post(neteaseMusicApiUrlManage.PlayList, postData, GlobalStateData.cookies);
                 var data = res.ToObject<PlayListOutModel>();
                 return data;
             }

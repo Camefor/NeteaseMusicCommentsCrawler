@@ -7,12 +7,13 @@ using CommentsCrawlerService.Modules;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace CommentsCrawler
 {
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
 
             //using (PerformanceTester performanceTester = new PerformanceTester())
@@ -22,9 +23,15 @@ namespace CommentsCrawler
 
             try
             {
-
-                MainService mainService = new MainService("346539201");
-                mainService.Main();
+                Console.Write("输入网易云音乐用户id:");
+                var userId = Console.ReadLine();
+                if (string.IsNullOrEmpty(userId))
+                {
+                    Console.WriteLine("无效id");
+                    return;
+                }
+                MainService mainService = new MainService(userId.Trim());
+                await mainService.Main();
             }
             catch (Exception ex)
             {

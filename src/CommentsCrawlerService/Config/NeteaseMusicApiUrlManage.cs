@@ -9,13 +9,13 @@ namespace CommentsCrawlerService.Config
     /// <summary>
     /// 统一维护 api 地址
     /// </summary>
-    public static class NeteaseMusicApiUrlManage
+    public class NeteaseMusicApiUrlManage
     {
 
         /// <summary>
         /// 获取用户歌单列表api 网易云音乐官方api
         /// </summary>
-        public static string PlayList
+        public string PlayList
         {
             get
             {
@@ -27,7 +27,7 @@ namespace CommentsCrawlerService.Config
         /// <summary>
         /// 获取用户歌单详情 第三方封装api
         /// </summary>
-        public static string PlayDetail
+        public string PlayDetail
         {
             get
             {
@@ -39,7 +39,7 @@ namespace CommentsCrawlerService.Config
         /// <summary>
         /// 获取歌曲评论api 官方
         /// </summary>
-        public static string MusicComments
+        public string MusicComments
         {
             get
             {
@@ -50,7 +50,7 @@ namespace CommentsCrawlerService.Config
         /// <summary>
         /// 获取歌曲详情 api 第三方
         /// </summary>
-        public static string MusicDetail
+        public string MusicDetail
         {
             get
             {

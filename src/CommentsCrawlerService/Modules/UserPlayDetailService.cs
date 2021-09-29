@@ -15,6 +15,7 @@ namespace CommentsCrawlerService.Modules
     /// </summary>
     public class UserPlayDetailService
     {
+        private NeteaseMusicApiUrlManage neteaseMusicApiUrlManage = new NeteaseMusicApiUrlManage();
 
         /// <summary>
         /// 一个歌单的详情数据
@@ -30,16 +31,11 @@ namespace CommentsCrawlerService.Modules
                     return null;
                 }
 
-                var url = NeteaseMusicApiUrlManage.PlayDetail + id;
+                var url = neteaseMusicApiUrlManage.PlayDetail + id;
                 //var res = HttpMethods.Get(url, TimeSpan.FromSeconds(5));
-
                 //TODO: 从登陆接口中获取cookie 
 
-                Dictionary<string, string> cookies = new Dictionary<string, string>();
-                cookies.Add("__csrf", "xxxx");
-                cookies.Add("MUSIC_U", "xxx");
-                cookies.Add("NMTID", "xxxx");
-                var res = HttpMethods.Get(url, cookies);
+                var res = HttpMethods.Get(url, GlobalStateData.cookies);
                 var data = res.ToObject<PlayDetailOutModel>();
 
                 if (data.code == 20001)

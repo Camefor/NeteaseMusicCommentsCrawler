@@ -48,7 +48,10 @@ namespace Camefor.Tools.NetCore.Util.Web
         {
             if (cookies != null)
             {
-                _httpClient = CreateHttpClient(url, cookies);
+                if (_httpClient == null)
+                {
+                    _httpClient = CreateHttpClient(url, cookies);
+                }
             }
             var request = new HttpRequestMessage(HttpMethod.Post, url) { Content = new FormUrlEncodedContent(dict) };
             var response = await _httpClient.SendAsync(request);

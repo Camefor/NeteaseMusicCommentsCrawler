@@ -31,20 +31,24 @@ namespace CommentsCrawlerService.Modules
         /// <param name="atargetUserId">要查询的用户id</param>
         public MainService(string atargetUserId)
         {
-            GlobalStateData.uid = atargetUserId;
             _uid = atargetUserId;
         }
 
 
-        public void Main()
+        public async Task Main()
         {
             var req = new Models.PlayListRequestModel { uid = _uid };
 
             Console.WriteLine("正在获取用户歌单列表数据……");
             var allPlayList = _userPlayListService.GetPlayList(req);
+
+            //只获取 用户 “喜欢的音乐” 歌单
+
             if (allPlayList?.code == 200)
             {
                 Console.WriteLine($"获取用户歌单列表成功，共有 {allPlayList.playlist?.Count} 个歌单");
+
+                allPlayList.playlist = allPlayList.playlist.Where(c => c.name.Contains("喜欢的音乐")).ToList();
 
                 //一个用户的所有歌单 
                 foreach (var play in allPlayList.playlist)
@@ -60,10 +64,10 @@ namespace CommentsCrawlerService.Modules
                         foreach (var trackId in playDetailList.playlist.trackIds)
                         {
                             //得到评论数据 且匹配目标数据
-                            _ = _musicCommentsService.GetComments(trackId.id.ToStr());
+                            await _musicCommentsService.GetComments(trackId.id.ToStr(), _uid);
                         }
                     }
-                   
+
                 }
             }
             else

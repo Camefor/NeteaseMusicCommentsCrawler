@@ -17,7 +17,7 @@ namespace CommentsCrawlerService.Modules
     /// </summary>
     public class MusicDetailService
     {
-
+        private NeteaseMusicApiUrlManage neteaseMusicApiUrlManage = new NeteaseMusicApiUrlManage();
 
         /// <summary>
         /// 获取歌曲名称
@@ -53,7 +53,7 @@ namespace CommentsCrawlerService.Modules
         /// <returns></returns>
         public MusicDetailOutModel GetMusicDetail(long id)
         {
-            string url = NeteaseMusicApiUrlManage.MusicDetail + id.ToString();
+            string url = neteaseMusicApiUrlManage.MusicDetail + id.ToString();
             var res = HttpMethods.Get(url);
             return res.ToObject<MusicDetailOutModel>();
         }
@@ -67,7 +67,7 @@ namespace CommentsCrawlerService.Modules
         public MusicDetailOutModel GetMusicDetails(List<long> ids)
         {
             var idsStr = string.Join(',', ids);
-            string url = NeteaseMusicApiUrlManage.MusicDetail + idsStr;
+            string url = neteaseMusicApiUrlManage.MusicDetail + idsStr;
             var res = HttpMethods.Get(url);
             return res.ToObject<MusicDetailOutModel>();
         }
